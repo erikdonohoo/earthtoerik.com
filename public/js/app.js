@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('ed.web', ['ngRoute','ngResource']).
+angular.module('ed.web', ['ngRoute','ngResource','ngAnimate']).
   config(['$locationProvider', function($locationProvider) {
     $locationProvider.html5Mode(true);
 }])
@@ -22,4 +22,8 @@ angular.module('ed.web', ['ngRoute','ngResource']).
 	};
 
 	return dir;
-}]);
+}])
+
+.run(['$rootScope','$timeout',function($root, $time){
+	$time(function(){$root.ready = true;});
+}])

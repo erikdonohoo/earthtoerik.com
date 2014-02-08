@@ -42,6 +42,7 @@ body {
 	font-family:@font-main;
 	background-color:@heavierblue;
 	color:@font-color;
+	border:none;
 	.shadow;
 }
 nav.navbar {
@@ -81,14 +82,34 @@ nav.navbar {
 	a {
 		background-color:@blue;
 		color:inherit;
-		border-bottom-right-radius: 0px;
-		border-bottom-left-radius: 0px;
+		position:relative;
 	}
-	&.active a, &.active:hover a {
-		border-bottom:2px solid @white;
+	&.active a:before, &.active:hover a:before {
+		position:absolute;
+		left:0;
+		content:'{';
+	}
+	&.active a:after, &.active:hover a:after {
+		content:'}';
+		position:absolute;
+		right:0;
 	}
 	&:hover a, &.active a, &.active:hover a  {
 		color:@white;
 		background-color:@blue;
 	}
+}
+.fly-in{
+	left:-250px;
+	position:relative;
+	opacity:0;
+	-webkit-transition: all 0.7s ease-out;
+	   -moz-transition: all 0.7s ease-out;
+	    -ms-transition: all 0.7s ease-out;
+	     -o-transition: all 0.7s ease-out;
+	        transition: all 0.7s ease-out;
+}
+.flew-in {
+	left:0px;
+	opacity:1;
 }
