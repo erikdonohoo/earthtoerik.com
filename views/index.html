@@ -1,4 +1,4 @@
-<html ng-app="myApp">
+<html ng-app="ed.web">
 <head>
 	<meta charset="utf8">
 	<title>(e)rik donohoo</title>
@@ -8,10 +8,9 @@
 </head>
 <body>
 	<nav class="navbar navbar-fixed-top">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><h1 class="logo">(<span>e</span>)</h1></a>
-			<ul class="nav nav-pills" ng-init="path = 'home';">
-				<li ng-class="{active: path == 'home'}" ng-click="path = 'home';"><a href="#">Home</a></li>
+		<div class="container-fluid" ng-init="path = 'home';">
+			<a ng-click="path = 'home';" class="navbar-brand" href="#"><ed-logo size="40"></ed-logo></a>
+			<ul class="nav nav-pills">
 				<li ng-class="{active: path == 'blog'}" ng-click="path = 'blog';"><a href="#">Blog</a></li>
 				<li ng-class="{active: path == 'work'}" ng-click="path = 'work';"><a href="#">Work</a></li>
 				<li ng-class="{active: path == 'play'}" ng-click="path = 'play';"><a href="#">Play</a></li>
@@ -19,9 +18,8 @@
 		</div>
 	</nav>
 	<div class="app">
-		<div class="container-fluid">
+		<div class="container">
 			<h1>Welcome</h1>
-			<div class="tall"></div>
 		</div>
 	</div>
 

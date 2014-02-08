@@ -5,13 +5,17 @@
 @heavyorange:#A63100;
 @lightorange:#FF7940;
 @paleorange:#FF9D73;
+@faintorange:lighten(@orange, 40%);
 
 // Blues
 @blue:#057D9F;
 @midblue:#216477;
 @heavyblue:#025167;
+@heavierblue:darken(@heavyblue, 5%);
 @lightblue:#39AECF;
 @paleblue:#61B7CF;
+@faintblue:lighten(@blue, 40%);
+@fainterblue:lighten(@faintblue, 10%);
 
 // Greens
 @green:#25D500;
@@ -19,6 +23,7 @@
 @heavygreen:#188A00;
 @lightgreen:#59EA3A;
 @palegreen:#80EA69;
+@faintgreen:lighten(@green, 40%);
 
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Duru+Sans);
@@ -29,10 +34,15 @@
 @font-accent:'Hammersmith One', sans-serif;
 @font-header:'Montserrat', sans-serif;
 @font-brand:'Nova Flat', cursive;
+@font-color:@white;
+@white:whitesmoke;
 
 body {
 	padding-top:70px;
 	font-family:@font-main;
+	background-color:@heavierblue;
+	color:@font-color;
+	.shadow;
 }
 nav.navbar {
 	vertical-align: middle;
@@ -40,22 +50,27 @@ nav.navbar {
 	background-color:@blue;
 	border-bottom:2px solid @paleblue;
 	border-top:2px solid @paleblue;
+	color:@faintblue;
+}
+.shadow () {
+	text-shadow: 0 2px 2px hsla(0,0%,0%,.25);
 }
 .logo {
-	color:whitesmoke;
+	color:@white;
 	padding:0;
 	font-family:@font-brand;
+	display:inline-block;
 	span {
 		display:inline-block;
 		margin-top:-5px;
 		position:relative;
-		bottom:3px;
+		bottom:4px;
 	}
 }
 .navbar-brand {
 	padding:0;
-	margin-top:-13px;
-	margin-right:80px;
+	margin-top:15px;
+	margin-right:15px;
 	
 }
 .nav li {
@@ -64,19 +79,16 @@ nav.navbar {
 	letter-spacing: 1px;
 	margin:0 25px;
 	a {
-		color:@paleblue;
 		background-color:@blue;
+		color:inherit;
 		border-bottom-right-radius: 0px;
 		border-bottom-left-radius: 0px;
 	}
 	&.active a, &.active:hover a {
-		border-bottom:2px solid whitesmoke;
+		border-bottom:2px solid @white;
 	}
 	&:hover a, &.active a, &.active:hover a  {
-		color:whitesmoke;
+		color:@white;
 		background-color:@blue;
 	}
-}
-.tall {
-	height:2000px;
 }
