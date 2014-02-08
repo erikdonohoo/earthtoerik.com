@@ -1,0 +1,58 @@
+// Color Scheme
+// Oranges
+@orange:#FF4C00;
+@midorange:#BF5B30;
+@heavyorange:#A63100;
+@lightorange:#FF7940;
+@paleorange:#FF9D73;
+
+// Blues
+@blue:#057D9F;
+@midblue:#216477;
+@heavyblue:#025167;
+@lightblue:#39AECF;
+@paleblue:#61B7CF;
+
+// Greens
+@green:#25D500;
+@midgreen:#3DA028;
+@heavygreen:#188A00;
+@lightgreen:#59EA3A;
+@palegreen:#80EA69;
+
+// Fonts
+@import url(http://fonts.googleapis.com/css?family=Duru+Sans);
+@import url(http://fonts.googleapis.com/css?family=Hammersmith+One);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@font-main:'Duru Sans', sans-serif;
+@font-hammer:'Hammersmith One', sans-serif;
+@font-serrat:'Montserrat', sans-serif;
+
+header {
+	vertical-align: middle;
+	padding:15px 40px;
+	background-color:@blue;
+	border-bottom:2px solid @paleblue;
+	border-top:2px solid @paleblue;
+	position:fixed;
+	width:100%;
+}
+.nav li {
+	font-family:@font-serrat;
+	margin:0 35px;
+	font-size:20px;
+	font-weight:700;
+	a {
+		color:@paleblue;
+	}
+	&.active a, &:hover a, &.active:hover a {
+		color:@paleblue;
+		background-color:whitesmoke;
+	}
+}
+.app {
+	padding-top:75px;
+}
+.tall {
+	height:2000px;
+}
