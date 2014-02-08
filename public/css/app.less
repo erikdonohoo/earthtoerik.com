@@ -42,7 +42,6 @@ body {
 	font-family:@font-main;
 	background-color:@heavierblue;
 	color:@font-color;
-	border:none;
 	.shadow;
 }
 nav.navbar {
@@ -80,16 +79,15 @@ nav.navbar {
 	letter-spacing: 1px;
 	margin:0 25px;
 	a {
-		background-color:@blue;
 		color:inherit;
 		position:relative;
 	}
-	&.active a:before, &.active:hover a:before {
+	&.active a:before {
 		position:absolute;
 		left:0;
 		content:'{';
 	}
-	&.active a:after, &.active:hover a:after {
+	&.active a:after {
 		content:'}';
 		position:absolute;
 		right:0;
@@ -98,18 +96,4 @@ nav.navbar {
 		color:@white;
 		background-color:@blue;
 	}
-}
-.fly-in{
-	left:-250px;
-	position:relative;
-	opacity:0;
-	-webkit-transition: all 0.7s ease-out;
-	   -moz-transition: all 0.7s ease-out;
-	    -ms-transition: all 0.7s ease-out;
-	     -o-transition: all 0.7s ease-out;
-	        transition: all 0.7s ease-out;
-}
-.flew-in {
-	left:0px;
-	opacity:1;
 }
