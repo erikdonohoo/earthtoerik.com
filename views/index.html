@@ -1,25 +1,26 @@
 <html ng-app="ed.web">
 <head>
 	<meta charset="utf8">
-	<title>(e)rik donohoo</title>
+	<title>{e}rik donohoo</title>
 	<base href="/">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<link rel="shortcut icon" href="/img/favicon.png">
 </head>
 <body>
 	<nav class="navbar navbar-fixed-top">
-		<div class="container-fluid" ng-init="path = 'home';">
-			<a ng-click="path = 'home';" class="navbar-brand" href="#"><ed-logo size="40"></ed-logo></a>
+		<a class="navbar-brand" href="/"><ed-logo size="40"></ed-logo></a>
+		<div class="container">
 			<ul class="nav nav-pills">
-				<li ng-class="{active: path == 'blog'}" ng-click="path = 'blog';"><a href="#">Blog</a></li>
-				<li ng-class="{active: path == 'work'}" ng-click="path = 'work';"><a href="#">Work</a></li>
-				<li ng-class="{active: path == 'play'}" ng-click="path = 'play';"><a href="#">Play</a></li>
+				<li ng-class="{active: location.path() == '/blog'}"><a href="/blog">Blog</a></li>
+				<li ng-class="{active: location.path() == '/work'}"><a href="/work">Work</a></li>
+				<li ng-class="{active: location.path() == '/play'}"><a href="/play">Play</a></li>
 			</ul>
 		</div>
 	</nav>
 	<div class="app">
 		<div class="container">
-			<h1>Welcome</h1>
+			<div ng-view></div>
 		</div>
 	</div>
 

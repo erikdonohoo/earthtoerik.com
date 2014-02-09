@@ -38,7 +38,7 @@
 @white:whitesmoke;
 
 body {
-	padding-top:70px;
+	padding-top:90px;
 	font-family:@font-main;
 	background-color:@heavierblue;
 	color:@font-color;
@@ -60,11 +60,13 @@ nav.navbar {
 	padding:0;
 	font-family:@font-brand;
 	display:inline-block;
+	font-size:inherit;
 	span {
 		display:inline-block;
-		margin-top:-5px;
+		margin-top:-0.1em;
 		position:relative;
 		bottom:4px;
+		font-size:inherit;
 	}
 }
 .navbar-brand {
@@ -82,15 +84,32 @@ nav.navbar {
 		color:inherit;
 		position:relative;
 	}
-	&.active a:before {
-		position:absolute;
-		left:0;
+	a:before, a:after {
+		-webkit-transition: all 0.5s ease;
+		   -moz-transition: all 0.5s ease;
+		    -ms-transition: all 0.5s ease;
+		     -o-transition: all 0.5s ease;
+		        transition: all 0.5s ease;
+		        opacity:0;
+		        position:absolute;
+	}
+	a:before {
+		left:50%;
 		content:'{';
+	}
+	a:after {
+		right:50%;
+		content:'}';
+	}
+	&.active a:before, &.active a:after {
+		opacity:1;
+	}
+	&.active a:before {
+		left:0%;
 	}
 	&.active a:after {
 		content:'}';
-		position:absolute;
-		right:0;
+		right:0%;
 	}
 	&:hover a, &.active a, &.active:hover a  {
 		color:@white;
