@@ -39,7 +39,6 @@
 @white:whitesmoke;
 
 body {
-	padding-top:90px;
 	font-size:@font-size;
 	font-family:@font-main;
 	background-color:@heavierblue;
@@ -50,9 +49,9 @@ nav.navbar {
 	vertical-align: middle;
 	padding:15px 40px;
 	background-color:@blue;
-	border-bottom:2px solid @paleblue;
-	border-top:2px solid @paleblue;
+	border-bottom:4px solid @paleblue;
 	color:@faintblue;
+	border-radius:0px;
 }
 .shadow () {
 	text-shadow: 0 2px 2px hsla(0,0%,0%,.25);
@@ -73,15 +72,15 @@ nav.navbar {
 }
 .navbar-brand {
 	padding:0;
-	margin-top:15px;
-	margin-right:15px;
-	
+	margin:0;
+	height:auto;
+	line-height:inherit;
 }
 .nav li {
 	font-family:@font-header;
 	font-size:20px;
 	letter-spacing: 1px;
-	margin:0 25px;
+	margin:auto 25px auto 25px;
 	a {
 		color:inherit;
 		position:relative;
