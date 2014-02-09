@@ -83,6 +83,9 @@ nav.navbar {
 ul.nav {
 	margin-top:4px;
 }
+.show-force {
+	display:block !important;
+}
 
 // Drop down menu for small screens
 @media (max-width:600px) {
@@ -90,8 +93,12 @@ ul.nav {
 		display:block;
 		float:right;
 		color:@white;
-		margin:15px 15px 0 0;
+		margin:8px 15px 0 0;
 		cursor:pointer;
+
+		&.open {
+			text-shadow: -2px -2px 0px rgba(0,0,0,0.25);
+		}
 	}
 	nav.navbar, nav.navbar .container {
 		padding:0;
@@ -109,9 +116,7 @@ ul.nav {
 		display:block;
 		width:100%;
 		text-align: center;
-		& + li {
-			border-top:1px solid @heavyblue;
-		}
+		border-top:1px solid @paleblue;
 	}
 }
 .nav li {

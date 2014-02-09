@@ -12,9 +12,9 @@
 <body>
 	<nav class="navbar">
 		<a class="navbar-brand" href="/"><ed-logo size="40"></ed-logo></a>
-		<div class="menu" ng-click="tools.open = !tools.open"><i class="fa fa-bars fa-2x"></i></div>
+		<div class="menu" ng-class="{open: tools.open}" ng-click="tools.open = !tools.open"><i class="fa fa-bars fa-3x"></i></div>
 		<div class="container">
-			<ul class="nav nav-pills" ng-show="tools.open">
+			<ul class="nav nav-pills" ng-show="tools.open" ed-show-window="600">
 				<li ng-class="{active: location.path() == '/blog'}"><a href="/blog">Blog</a></li>
 				<li ng-class="{active: location.path() == '/work'}"><a href="/work">Work</a></li>
 				<li ng-class="{active: location.path() == '/play'}"><a href="/play">Play</a></li>

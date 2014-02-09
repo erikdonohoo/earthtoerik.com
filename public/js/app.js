@@ -39,6 +39,31 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch']).
 	return dir;
 }])
 
+.directive('edShowWindow',['$window',function($window){
+	var dir = {};
+	dir.scope = {
+		edShowWindow: '@'
+	};
+	dir.link = function(scope, elem) {
+
+		scope.getPageWidth = function() {
+			return $window.innerWidth;
+		};
+
+		$window.onresize = function() {
+			scope.$apply(); // Tell angular about window size change
+		};
+
+		scope.$watch(scope.getPageWidth, function(newVal){
+			if (newVal > scope.edShowWindow)
+				elem.addClass('show-force');
+			else
+				elem.removeClass('show-force');
+		});
+	};
+	return dir;
+}])
+
 .run(['$rootScope','$location',function($root,$loc){
 	$root.location = $loc;
 	var tools = {};
