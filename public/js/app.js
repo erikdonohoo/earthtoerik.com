@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('ed.web', ['ngRoute','ngResource']).
+angular.module('ed.web', ['ngRoute','ngResource','ngTouch']).
   config(['$locationProvider','$routeProvider', function($locationProvider,$route) {
   	$route.when('/blog',{
   		template:'<div>Blog</div>'
@@ -14,7 +14,10 @@ angular.module('ed.web', ['ngRoute','ngResource']).
   		template:'<div>Play</div>'
   	})
   	.when('/',{
-  		templateUrl:'partials/home'
+  		templateUrl:'partials/home',
+  		controller:function($scope){
+  			$scope.tools.open = false;
+  		}
   	}).otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 }])
