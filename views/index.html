@@ -5,14 +5,16 @@
 	<base href="/">
 	<meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/fontawesome/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="shortcut icon" href="/img/favicon.png">
 </head>
 <body>
 	<nav class="navbar">
 		<a class="navbar-brand" href="/"><ed-logo size="40"></ed-logo></a>
+		<div class="menu" ng-click="tools.open = !tools.open"><i class="fa fa-bars fa-2x"></i></div>
 		<div class="container">
-			<ul class="nav nav-pills">
+			<ul class="nav nav-pills" ng-show="tools.open">
 				<li ng-class="{active: location.path() == '/blog'}"><a href="/blog">Blog</a></li>
 				<li ng-class="{active: location.path() == '/work'}"><a href="/work">Work</a></li>
 				<li ng-class="{active: location.path() == '/play'}"><a href="/play">Play</a></li>

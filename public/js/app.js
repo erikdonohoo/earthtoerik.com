@@ -38,4 +38,7 @@ angular.module('ed.web', ['ngRoute','ngResource']).
 
 .run(['$rootScope','$location',function($root,$loc){
 	$root.location = $loc;
+	var tools = {};
+	tools.open = true;
+	$root.tools = tools;
 }])

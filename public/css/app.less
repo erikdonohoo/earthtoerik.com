@@ -47,11 +47,15 @@ body {
 }
 nav.navbar {
 	vertical-align: middle;
-	padding:15px 40px;
+	padding:10px 15px;
 	background-color:@blue;
 	border-bottom:4px solid @paleblue;
 	color:@faintblue;
 	border-radius:0px;
+
+	.menu {
+		display:none;
+	}
 }
 .shadow () {
 	text-shadow: 0 2px 2px hsla(0,0%,0%,.25);
@@ -76,11 +80,43 @@ nav.navbar {
 	height:auto;
 	line-height:inherit;
 }
+ul.nav {
+	margin-top:4px;
+}
+
+// Drop down menu for small screens
+@media (max-width:600px) {
+	nav.navbar .menu {
+		display:block;
+		float:right;
+		color:@white;
+		margin:10px 15px 0 0;
+		cursor:pointer;
+	}
+	nav.navbar, nav.navbar .container {
+		padding:0;
+		margin-top:-3px;
+	}
+	ul.nav, .navbar-brand {
+		padding-left:0px;
+		padding-right:0px;
+	}
+	ul.nav li {
+		margin-left:0px;
+		display:block;
+		width:100%;
+		text-align: center;
+		& + li {
+			border-top:1px solid @heavyblue;
+		}
+	}
+}
 .nav li {
 	font-family:@font-header;
 	font-size:20px;
 	letter-spacing: 1px;
 	margin:auto 25px auto 25px;
+	margin-left:2px;
 	a {
 		color:inherit;
 		position:relative;
