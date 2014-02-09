@@ -15,8 +15,9 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch']).
   	})
   	.when('/',{
   		templateUrl:'partials/home',
-  		controller:function($scope){
-  			$scope.tools.open = false;
+  		controller:function($scope, Nav){
+  			Nav.open = false;
+  			prettyPrint();
   		}
   	}).otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
@@ -64,9 +65,16 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch']).
 	return dir;
 }])
 
-.run(['$rootScope','$location',function($root,$loc){
+.factory('Nav', [function(){
+	var nav = {};
+	nav.open = false; // Show/hide nav
+	return nav;
+}])
+
+.controller('NavCtrl', ['$scope','Nav', function($scope,Nav){
+	$scope.nav = Nav;
+}])
+
+.run(['$rootScope','$location','Nav',function($root,$loc){
 	$root.location = $loc;
-	var tools = {};
-	tools.open = true;
-	$root.tools = tools;
 }])
