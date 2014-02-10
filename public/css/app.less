@@ -47,7 +47,18 @@ body {
 	.shadow;
 }
 a {
-	color:inherit;
+	color:@orange;
+	border-bottom-style:dotted;
+	&:hover {
+		text-decoration:none;
+		color:@paleorange;
+	}
+	&:visited {
+		color:@fainterblue;
+		&:hover {
+			border:none;
+		}
+	}
 }
 p {
 	text-align: justify;
@@ -64,7 +75,7 @@ nav.navbar {
 	vertical-align: middle;
 	padding:10px 15px;
 	background-color:@blue;
-	border-bottom:4px solid @paleblue;
+	border-bottom:4px solid @fainterblue;
 	color:@faintblue;
 	border-radius:0px;
 
@@ -91,12 +102,13 @@ nav.navbar {
 		font-size:inherit;
 	}
 }
-.navbar-brand {
+a.navbar-brand {
 	padding:0;
 	margin:0 20px 0 0;
 	height:auto;
 	line-height:inherit;
 	color:@white;
+	border:none;
 }
 ul.nav {
 	margin-top:4px;
@@ -116,6 +128,10 @@ ul.nav {
 	a:hover {
 		text-shadow:none;
 		color:inherit;
+	}
+	a {
+		color:inherit;
+		border:none;
 	}
 }
 // Drop down menu for small screens
@@ -184,6 +200,8 @@ ul.nav {
 	a {
 		color:inherit;
 		position:relative;
+		text-decoration: none;
+		border:none;
 	}
 	a:before, a:after {
 		-webkit-transition: all 0.5s ease;
