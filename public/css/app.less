@@ -47,21 +47,12 @@ body {
 	.shadow;
 }
 a {
-	color:@paleorange;
+	color:@faintblue;
 	border-bottom-style:dotted;
 	&:hover {
 		text-decoration:none;
-		color:@faintorange;
-	}
-	&:visited {
 		color:@fainterblue;
-		&:hover {
-			border:none;
-		}
 	}
-}
-p {
-	text-align: justify;
 }
 .social a {
 	width:23%;
@@ -125,13 +116,22 @@ ul.nav {
 	img {
 		margin:0 auto;
 	}
-	a:hover {
-		text-shadow:none;
-		color:inherit;
-	}
 	a {
 		color:inherit;
 		border:none;
+		&:hover {
+			color:inherit;
+		}
+	}
+	i.fa {
+		text-shadow: 2px 1px 2px hsla(0,0%,0%,.25);
+	}
+	i.fa:hover {
+		color:rgba(255,255,255,0.75);
+		text-shadow: 2px 1px 2px @blue, 0 0 0 #000, 2px 1px 2px @blue;
+	}
+	p {
+		text-align: justify;
 	}
 }
 .ed-code {

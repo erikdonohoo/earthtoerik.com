@@ -11,21 +11,12 @@ body {
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
 a {
-  color: #ff9d73;
+  color: #75ddfb;
   border-bottom-style: dotted;
 }
 a:hover {
   text-decoration: none;
-  color: #ffdbcc;
-}
-a:visited {
   color: #a7e9fc;
-}
-a:visited:hover {
-  border: none;
-}
-p {
-  text-align: justify;
 }
 .social a {
   width: 23%;
@@ -90,13 +81,22 @@ ul.nav {
 .aside img {
   margin: 0 auto;
 }
-.aside a:hover {
-  text-shadow: none;
-  color: inherit;
-}
 .aside a {
   color: inherit;
   border: none;
+}
+.aside a:hover {
+  color: inherit;
+}
+.aside i.fa {
+  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
+}
+.aside i.fa:hover {
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 2px 1px 2px #057d9f, 0 0 0 #000000, 2px 1px 2px #057d9f;
+}
+.aside p {
+  text-align: justify;
 }
 .ed-code {
   font-size: 16px;
