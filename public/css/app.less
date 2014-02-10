@@ -37,7 +37,11 @@
 @font-color:@white;
 @font-size:16px;
 @white:whitesmoke;
+@footer-height:70px;
 
+html, body {
+	height:100%;
+}
 body {
 	padding-top:80px;
 	font-size:@font-size;
@@ -104,8 +108,15 @@ a.navbar-brand {
 ul.nav {
 	margin-top:4px;
 }
-.show-force {
-	display:block !important;
+.app {
+	margin-bottom:10px;
+}
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -@footer-height;
+  padding: 0 0 @footer-height;
 }
 .aside {
 	padding:10px;
@@ -133,6 +144,13 @@ ul.nav {
 	p {
 		text-align: justify;
 	}
+}
+footer {
+	height:@footer-height;
+	background-color:@blue;
+	border-top:4px solid @fainterblue;
+	width:100%;
+	margin:0;
 }
 .ed-code {
 	font-size:16px;

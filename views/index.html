@@ -11,23 +11,32 @@
 	<link rel="shortcut icon" href="/img/favicon.png">
 </head>
 <body>
-	<nav class="navbar navbar-fixed-top" ng-controller="NavCtrl">
-		<a class="navbar-brand" href="/"><ed-logo size="40"></ed-logo></a>
-		<div class="menu" ng-class="{open: nav.open}" ng-click="nav.open = !nav.open"><i class="fa fa-bars fa-2x"></i></div>
-		<div class="container-fluid">
-			<ul class="nav nav-pills" ng-show="nav.open" ed-show-window="768">
-				<li ng-class="{active: location.path() == '/blog'}"><a href="/blog">Blog</a></li>
-				<li ng-class="{active: location.path() == '/work'}"><a href="/work">Work</a></li>
-				<li ng-class="{active: location.path() == '/play'}"><a href="/play">Play</a></li>
-			</ul>
-		</div>
-	</nav>
-	<div class="app">
-		<div class="container">
-			<div ng-view></div>
+	<div id="wrap">
+		<nav class="navbar navbar-fixed-top" ng-controller="NavCtrl">
+			<a class="navbar-brand" href="/"><ed-logo size="40"></ed-logo></a>
+			<div class="menu" ng-class="{open: nav.open}" ng-click="nav.open = !nav.open"><i class="fa fa-bars fa-2x"></i></div>
+			<div class="container-fluid">
+				<ul class="nav nav-pills" ng-show="nav.open" ed-show-window="768">
+					<li ng-class="{active: location.path() == '/blog'}"><a href="/blog">Blog</a></li>
+					<li ng-class="{active: location.path() == '/work'}"><a href="/work">Work</a></li>
+					<li ng-class="{active: location.path() == '/play'}"><a href="/play">Play</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="app">
+			<div class="container">
+				<div ng-view></div>
+			</div>
 		</div>
 	</div>
 	<footer>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-4">
+					<h3>&copy; <ed-logo></ed-logo></h3>
+				</div>
+			</div>
+		</div>
 	</footer>
 	<script src="/css/prettify/prettify.js"></script>
 	<script src="/js/lib/angular/angular.js"></script>

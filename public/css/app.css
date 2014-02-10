@@ -2,6 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Hammersmith+One);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Nova+Flat);
+html,
+body {
+  height: 100%;
+}
 body {
   padding-top: 80px;
   font-size: 16px;
@@ -68,8 +72,15 @@ a.navbar-brand {
 ul.nav {
   margin-top: 4px;
 }
-.show-force {
-  display: block !important;
+.app {
+  margin-bottom: 10px;
+}
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -70px;
+  padding: 0 0 70px;
 }
 .aside {
   padding: 10px;
@@ -97,6 +108,13 @@ ul.nav {
 }
 .aside p {
   text-align: justify;
+}
+footer {
+  height: 70px;
+  background-color: #057d9f;
+  border-top: 4px solid #a7e9fc;
+  width: 100%;
+  margin: 0;
 }
 .ed-code {
   font-size: 16px;
