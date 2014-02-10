@@ -82,7 +82,7 @@ ul.nav {
   text-shadow: none;
   color: inherit;
 }
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   nav.navbar .menu {
     display: block;
     float: right;
