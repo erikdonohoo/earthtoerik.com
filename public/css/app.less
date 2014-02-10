@@ -125,9 +125,32 @@ ul.nav {
 		color:@white;
 		margin:15px 15px 0 0;
 		cursor:pointer;
-
 		&.open {
 			text-shadow: -2px -2px 0px rgba(0,0,0,0.25);
+		}
+	}
+	ul.nav {
+		height:160px;
+		li {
+			height:33%;
+		}
+		-webkit-transition: all 0.3s ease;
+		   -moz-transition: all 0.3s ease;
+		    -ms-transition: all 0.3s ease;
+		     -o-transition: all 0.3s ease;
+		        transition: all 0.3s ease;
+	}
+	ul.nav.ng-hide-add, ul.nav.ng-hide-remove {
+		display:block!important;
+		li {
+
+		}
+	}
+	ul.nav.ng-hide {
+		height:0px;
+		li {
+			display:none;
+			height:0px;
 		}
 	}
 	nav.navbar, nav.navbar .container-fluid {

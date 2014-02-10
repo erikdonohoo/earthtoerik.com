@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('ed.web', ['ngRoute','ngResource','ngTouch']).
+angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
   config(['$locationProvider','$routeProvider', function($locationProvider,$route) {
   	$route.when('/blog',{
   		template:'<div>Blog</div>'
