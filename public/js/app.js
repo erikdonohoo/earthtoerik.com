@@ -1,4 +1,3 @@
-'use strict';
 
 
 // Declare app level module which depends on filters, and services
@@ -6,7 +5,7 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
   config(['$locationProvider','$routeProvider', function($locationProvider,$route) {
   	$route.when('/blog',{
   		template:'<div>Blog</div>'
-  	})
+ 	})
   	.when('/work',{
   		template:'<div>Work</div>'
   	})
@@ -65,6 +64,21 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
+.directive('edCode',['$timeout', function($timeout){
+	var dir = {};
+	dir.scope = {
+		plunk: '@'
+	};
+	dir.restrict = 'E';
+	dir.template = '<div class="ed-code clearfix"><pre class="prettyprint"></pre><a ng-href="{{plunk}}" target="_blank"><i class="code-link fa fa-toggle-down fa-2x" title="Try in Plnkr"></i></a></div>';
+	dir.transclude = true;
+	dir.link = function(scope, elem, attr, ctrl, transclude) {
+		console.log(angular.element('<div>').append(transclude()).html());
+		elem.find('pre').append(prettyPrintOne(angular.element('<div>').append(transclude()).find('span').html().replace(/\t/g,"").replace(/</g,'&lt;').replace(/>/g,'&gt;')));
+	};
+	return dir;
+}])
+
 .factory('Nav', [function(){
 	var nav = {};
 	nav.open = false; // Show/hide nav
@@ -77,4 +91,4 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 
 .run(['$rootScope','$location','Nav',function($root,$loc){
 	$root.location = $loc;
-}])
+}]);
