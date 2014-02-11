@@ -3,6 +3,15 @@
 		list-style: none;
 	}
 	ul li {
-		height:25px;
+		position:relative;
+		height:30px;
+		&:before {
+			color:@palegreen;
+			font-family:'FontAwesome';
+			content:'\f196';
+			position:absolute;
+			left:-20px;
+			top:2px;
+		}
 	}
 }

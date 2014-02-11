@@ -384,3 +384,18 @@ li.L8 {
     color: #006600;
   }
 }
+.archive ul {
+  list-style: none;
+}
+.archive ul li {
+  position: relative;
+  height: 30px;
+}
+.archive ul li:before {
+  color: #80ea69;
+  font-family: 'FontAwesome';
+  content: '\f196';
+  position: absolute;
+  left: -20px;
+  top: 2px;
+}

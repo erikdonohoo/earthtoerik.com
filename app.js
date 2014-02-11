@@ -4,8 +4,7 @@
  */
 
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api');
+  routes = require('./routes');
 
 var app = module.exports = express();
 
@@ -26,7 +25,7 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
-app.get('/api/name', api.name);
+app.get('/api/posts', require('./routes/api/post.js').query);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
