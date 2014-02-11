@@ -407,8 +407,12 @@ li.L8 {
     color: #006600;
   }
 }
+.archive {
+  margin-bottom: 70px;
+}
 .archive ul {
   list-style: none;
+  padding-left: 0;
 }
 .archive ul li {
   position: relative;
@@ -487,7 +491,7 @@ li.L8 {
     display: block;
   }
 }
-@media (max-width: 769px) {
+@media (max-width: 767px) {
   .archive {
     display: none;
   }
