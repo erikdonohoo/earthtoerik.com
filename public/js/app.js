@@ -71,7 +71,7 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 		condition: '&'
 	};
 	dir.replace = true;
-	dir.template = '<div class="loading" ng-show="expr"><i class="fa fa-spinner fa-spin fa-4x"></i></div>';
+	dir.template = '<div class="loading" ng-show="expr"><i class="fa fa-spinner fa-spin fa-4x"></i><div>loading</div></div>';
 	dir.link = function(scope) {
 		scope.expr = scope.condition();
 		scope.$watch('condition()', function(){

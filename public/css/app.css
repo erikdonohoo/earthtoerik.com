@@ -37,13 +37,11 @@ a:hover {
   -o-animation: spin 1s linear infinite normal;
   animation: spin 1s linear infinite normal;
 }
-.loading:after {
+.loading div {
   font-family: 'Nova Flat', cursive;
-  content: 'loading';
   font-size: 26px;
-  position: absolute;
-  bottom: -40px;
-  left: 45%;
+  width: 100%;
+  text-align: inherit;
 }
 h1,
 h2,
