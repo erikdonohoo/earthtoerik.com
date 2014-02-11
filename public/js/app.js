@@ -99,7 +99,7 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 		};
 
 		scope.top = function() {
-			$location.hash('top');
+			$location.hash();
 			$anchorScroll();
 		};
 
