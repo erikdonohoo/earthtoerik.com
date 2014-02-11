@@ -128,7 +128,7 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
-.directive('edPost', ['$compile','$http', function($compile, $http){
+.directive('edPost', ['$compile','$http','$window', function($compile, $http, $window){
 	var dir = {};
 	dir.scope = {
 		blogid: '=content'
@@ -141,6 +141,7 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 			var html = $compile(data)(scope);
 			elem.append(html);
 			var disqus_shortname = 'erikdonohoo'; // required: replace example with your forum shortname
+			$window.disqus_identifier = scope.blogid;
 
 			/* * * DON'T EDIT BELOW THIS LINE * * */
 			(function() {
