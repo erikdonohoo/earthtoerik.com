@@ -4,7 +4,20 @@
 angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
   config(['$locationProvider','$routeProvider', function($locationProvider,$route) {
   	$route.when('/blog',{
-  		template:'<div>Blog</div>'
+  		templateUrl:'partials/blog',
+  		controller:function($scope,Nav) {
+  			Nav.open = false;
+  			var year = [];
+  			var now = new Date();
+  			for (var i = 0; i < 12; i++) {
+  				var month = {};
+  				month.start = new Date(now.getFullYear(), now.getMonth() - i, 1).getTime();
+  				month.end = new Date(now.getFullYear(), now.getMonth() - i + 1, 0).getTime();
+  				year.push(month);
+  			}
+
+  			$scope.year = year;
+  		}
  	})
   	.when('/work',{
   		template:'<div>Work</div>'
@@ -16,7 +29,6 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
   		templateUrl:'partials/home',
   		controller:function($scope, Nav){
   			Nav.open = false;
-  			prettyPrint();
   		}
   	}).otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
