@@ -424,7 +424,9 @@ li.L8 {
 }
 .post {
   margin-bottom: 20px;
-  border-bottom: 2px solid #ff4c00;
+}
+.post + .post {
+  border-top: 2px solid #ff4c00;
 }
 .post .info {
   font-size: 18px;
