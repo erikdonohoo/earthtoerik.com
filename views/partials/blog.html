@@ -5,7 +5,7 @@
 				<h2>Archive</h2>
 				<ul>
 					<li ng-repeat="month in year">
-						<a ng-href="blog?searchStart={{month.start}}&amp;searchEnd={{month.end}}">{{month.start | date:'MMMM yyyy'}}</a>
+						<a ng-href="blog?startDate={{month.start}}&amp;endDate={{month.end}}">{{month.start | date:'MMMM yyyy'}}</a>
 					</li>
 				</ul>
 			</div>

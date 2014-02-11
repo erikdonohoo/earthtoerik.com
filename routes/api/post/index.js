@@ -16,6 +16,19 @@ function query(app, mongo) {
 			if (req.query.tag)
 				q.tags = {'$in' : [req.query.tag]};
 
+			// Created after
+			if (req.query.startDate) {
+				q.date = q.date ? q.date : {};
+				q.date['$gte'] = parseInt(req.query.startDate);
+			}
+
+			// Created before
+			if (req.query.endDate) {
+				q.date = q.date ? q.date : {};
+				q.date['$lte'] = parseInt(req.query.endDate);
+			}
+
+			console.log(q);
 			post.find(q).toArray(function(err, docs){
 				if (err)
 					return console.error(err);
