@@ -16,7 +16,7 @@
 				<h1>{{post.title}}</h1>
 				<div class="info clearfix"><span class="date">{{post.date | date:'mediumDate'}}</span><span class="tags"><a ng-href="/blog?tag={{tag}}" ng-repeat="tag in post.tags" class="tag">{{tag}}</a></span></div>
 				<hr>
-				<p>{{post.text}}</p>
+				<ed-post content="post"></ed-post>
 			</div>
 		</div>
 	</div>

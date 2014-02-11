@@ -131,6 +131,21 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
+.directive('edPost', ['$compile', function($compile){
+	var dir = {};
+	dir.scope = {
+		post: '=content'
+	};
+	dir.restrict = 'E';
+	dir.replace = true;
+	dir.template = '<article></article>';
+	dir.link = function(scope, elem) {
+		var html = $compile(scope.post.text)(scope);
+		elem.append(html);
+	};
+	return dir;
+}])
+
 .factory('Nav', [function(){
 	var nav = {};
 	nav.open = false; // Show/hide nav
