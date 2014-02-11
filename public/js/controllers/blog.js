@@ -21,6 +21,8 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 		posts = Post.query(params);
 	};
 
+	searchPosts({});
+
 	$scope.year = year;
 	$scope.posts = posts;
 }]);
