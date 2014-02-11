@@ -30,18 +30,19 @@
 .post hr {
 	margin-top:0;
 }
-.post {
-	margin-bottom:20px;
-}
 .post + .post {
 	border-top:2px solid @orange;
 }
-.post .info {
-	font-size:18px;
-	color:@lightorange;
-	margin-bottom:10px;
-	postion:relative;
+.post {
 
+	margin-bottom:20px;
+
+	.info {
+		font-size:18px;
+		color:@lightorange;
+		margin-bottom:10px;
+		postion:relative;
+	}
 	.date {
 		font-size:inherit;
 		text-align:left;
@@ -58,24 +59,28 @@
 		left:-5px;
 		content:'\f017'
 	}
-	.date, .tags .tag {
+	.date, .tags .tag, .more {
 		padding:5px 15px;
 	}
 	.tags, .tags .tag {
 		float:right;
 	}
-	.tags .tag {
+	.more:hover, .tags .tag:hover {
+		color:@fainterblue;
+		border-color:@faintgreen;
+	}
+	.tags .tag, .more {
 		border-radius:10px;
 		display:inline-block;
 		border:2px solid @fainterblue;
 		margin:0 10px 10px 0;
 		color:@white;
-		&:before {
-			position:relative;
-			font-family:@font-awesome;
-			content:'\f02b';
-			left:-10px;
-		}
+	}
+	.tags .tag:before {
+		position:relative;
+		font-family:@font-awesome;
+		content:'\f02b';
+		left:-10px;
 	}
 }
 

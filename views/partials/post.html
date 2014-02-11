@@ -1,0 +1,6 @@
+<ed-load condition="postLoading()"></ed-load>
+<div class="post" ng-show="post">
+	<h1>{{post.title}}</h1>
+	<div class="info clearfix"><span class="date">{{post.date | date:'mediumDate'}}</span><span class="tags"><a ng-href="/blog?tag={{tag}}" ng-repeat="tag in post.tags" class="tag">{{tag}}</a></span></div>
+	<ed-post content="data.id"></ed-post>
+</div>

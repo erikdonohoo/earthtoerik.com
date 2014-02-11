@@ -3,22 +3,20 @@
 // Declare app level module which depends on filters, and services
 angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
   config(['$locationProvider','$routeProvider', function($locationProvider,$route) {
-  	$route.when('/blog',{
-  		templateUrl:'partials/blog',
-  		controller:'BlogCtrl'
- 	})
-  	.when('/work',{
-  		template:'<div>Work</div>'
-  	})
-  	.when('/play',{
-  		template:'<div>Play</div>'
-  	})
-  	.when('/',{
-  		templateUrl:'partials/home',
-  		controller:function($scope, Nav){
-  			Nav.open = false;
-  		}
-  	}).otherwise({redirectTo: '/'});
+	$route.when('/blog',{
+		templateUrl:'partials/blog',
+		controller:'BlogCtrl'
+	})
+	.when('/blog/:blogid',{
+		templateUrl:'partials/post',
+		controller:'PostCtrl'
+	})
+	.when('/',{
+		templateUrl:'partials/home',
+		controller:function($scope, Nav){
+			Nav.open = false;
+		}
+	}).otherwise({redirectTo: '/'});
     $locationProvider.html5Mode(true);
 }])
 
@@ -104,7 +102,6 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 		};
 
 		scope.$watch(scope.getScroll, function(newVal){
-			console.log(newVal);
 			if (newVal > scope.edScroll)
 				elem.removeClass('ng-hide');
 			else
@@ -131,17 +128,19 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
-.directive('edPost', ['$compile', function($compile){
+.directive('edPost', ['$compile','$http', function($compile, $http){
 	var dir = {};
 	dir.scope = {
-		post: '=content'
+		blogid: '=content'
 	};
 	dir.restrict = 'E';
 	dir.replace = true;
 	dir.template = '<article></article>';
 	dir.link = function(scope, elem) {
-		var html = $compile(scope.post.text)(scope);
-		elem.append(html);
+		$http.get('/posts/' + scope.blogid).success(function(data){
+			var html = $compile(data)(scope);
+			elem.append(html);
+		});
 	};
 	return dir;
 }])

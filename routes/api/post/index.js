@@ -1,14 +1,15 @@
 
 exports.load = function(app) {
-	var mongo = require('mongodb').MongoClient;
+	var mongo = require('mongodb');
 	app.get('/api/posts', query(app, mongo));
+	app.get('/api/posts/:id', get(app, mongo));
 };
 
 function query(app, mongo) {
 
 	// Get posts
 	return function(req, res) {
-		mongo.connect(app.get('dbstring'), function(err, db) {
+		mongo.MongoClient.connect(app.get('dbstring'), function(err, db) {
 			var post = db.collection('post');
 			var q = {};
 
@@ -28,11 +29,23 @@ function query(app, mongo) {
 				q.date['$lte'] = parseInt(req.query.endDate);
 			}
 
-			console.log(q);
-			post.find(q).toArray(function(err, docs){
+			post.find(q).sort({'date':-1}).toArray(function(err, docs){
 				if (err)
 					return console.error(err);
+
 				res.json(docs);
+			});
+		});
+	};
+}
+
+function get(app, mongo) {
+	// Get post
+	return function(req, res) {
+		mongo.MongoClient.connect(app.get('dbstring'), function(err, db){
+			var post = db.collection('post');
+			post.findOne({_id: new mongo.BSONPure.ObjectID(req.params.id)}, function(err, item){
+				res.json(item);
 			});
 		});
 	};
