@@ -7,7 +7,7 @@
 		height:30px;
 		&:before {
 			color:@palegreen;
-			font-family:'FontAwesome';
+			font-family:@font-awesome;
 			content:'\f196';
 			position:absolute;
 			left:-20px;
@@ -16,8 +16,68 @@
 	}
 }
 
+.post hr {
+	margin-top:0;
+}
+
+.post .info {
+	font-size:18px;
+	color:@lightorange;
+	margin-bottom:10px;
+	postion:relative;
+
+	.date {
+		font-size:inherit;
+		text-align:left;
+		position:relative;
+		float:left;
+		margin-bottom:10px;
+		display:inline-block;
+		margin-right:10px;
+		border:2px solid @heavyblue;
+	}
+	.date:before {
+		font-family:@font-awesome;
+		position:absolute;
+		left:-5px;
+		content:'\f017'
+	}
+	.date, .tags .tag {
+		padding:5px 15px;
+	}
+	.tags, .tags .tag {
+		float:right;
+	}
+	.tags .tag {
+		border-radius:10px;
+		display:inline-block;
+		border:2px solid @fainterblue;
+		margin:0 10px 10px 0;
+		color:@white;
+		&:before {
+			position:relative;
+			font-family:@font-awesome;
+			content:'\f02b';
+			left:-10px;
+		}
+	}
+}
+
+@media (max-width:1200px) {
+	.post .info .tags, .post .info .tags .tag {
+		float:left;
+	}
+	.post .date {
+		display:block;
+	}
+}
 @media (max-width:769px) {
 	.archive {
+		display:none;
+	}
+}
+@media (max-width:700) {
+	.post .info .tags {
 		display:none;
 	}
 }
