@@ -39,9 +39,6 @@
 @white:whitesmoke;
 @footer-height:70px;
 
-html, body {
-	height:100%;
-}
 body {
 	padding-top:80px;
 	font-size:@font-size;
@@ -49,6 +46,7 @@ body {
 	background-color:@heavyblue;
 	color:@font-color;
 	.shadow;
+	min-height:100%;
 }
 a {
 	color:@faintblue;
@@ -107,6 +105,21 @@ a.navbar-brand {
 }
 ul.nav {
 	margin-top:4px;
+}
+.show-force {
+	display:block !important;
+}
+.ed-scroll {
+	position:fixed;
+	z-index:100;
+	right:10px;
+	bottom:10px;
+	padding:10px;
+	border-radius:5px;
+	background-color:rgba(0,0,0,.25);
+	opacity:0.8;
+	color:@white;
+	cursor:pointer;
 }
 .app {
 	margin-bottom:10px;

@@ -64,6 +64,40 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
+.directive('edScroll', ['$window','$location','$anchorScroll', function($window,$location,$anchorScroll){
+	var dir = {};
+	dir.scope = {
+		edScroll: '@'
+	};
+	dir.replace = true;
+	dir.template = '<div class="ed-scroll ng-hide" ng-click="top()"><i class="fa fa-arrow-up fa-2x"></i></div>';
+	dir.link = function(scope, elem) {
+
+		scope.getScroll = function() {
+			return $window.scrollY;
+		};
+
+		$window.onscroll = function() {
+			scope.$apply(); // Tell angular about scrolling
+		};
+
+		scope.top = function() {
+			$location.hash('top');
+			$anchorScroll();
+		};
+
+		scope.$watch(scope.getScroll, function(newVal){
+			console.log(newVal);
+			if (newVal > scope.edScroll)
+				elem.removeClass('ng-hide');
+			else
+				elem.addClass('ng-hide');
+		});
+	};
+
+	return dir;
+}])
+
 .directive('edCode',['$timeout', function($timeout){
 	var dir = {};
 	dir.scope = {

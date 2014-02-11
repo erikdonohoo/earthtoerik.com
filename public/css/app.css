@@ -2,10 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Hammersmith+One);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Nova+Flat);
-html,
-body {
-  height: 100%;
-}
 body {
   padding-top: 80px;
   font-size: 16px;
@@ -13,6 +9,7 @@ body {
   background-color: #025167;
   color: #f5f5f5;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  min-height: 100%;
 }
 a {
   color: #75ddfb;
@@ -71,6 +68,21 @@ a.navbar-brand {
 }
 ul.nav {
   margin-top: 4px;
+}
+.show-force {
+  display: block !important;
+}
+.ed-scroll {
+  position: fixed;
+  z-index: 100;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 0.8;
+  color: #f5f5f5;
+  cursor: pointer;
 }
 .app {
   margin-bottom: 10px;
