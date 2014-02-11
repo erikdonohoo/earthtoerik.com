@@ -5,13 +5,17 @@
 	ul li {
 		position:relative;
 		height:30px;
-		&:before {
+		a::before {
 			color:@palegreen;
 			font-family:@font-awesome;
-			content:'\f196';
+			content:'\f097';
 			position:absolute;
 			left:-20px;
 			top:2px;
+		}
+		&.all a:before {
+			font-family:@font-awesome;
+			color:@lightorange;
 		}
 	}
 }

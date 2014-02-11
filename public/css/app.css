@@ -11,6 +11,9 @@ body {
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
   min-height: 100%;
 }
+em {
+  color: #ff7940;
+}
 a {
   color: #75ddfb;
   border-bottom-style: dotted;
@@ -411,13 +414,17 @@ li.L8 {
   position: relative;
   height: 30px;
 }
-.archive ul li:before {
+.archive ul li a::before {
   color: #80ea69;
   font-family: 'FontAwesome';
-  content: '\f196';
+  content: '\f097';
   position: absolute;
   left: -20px;
   top: 2px;
+}
+.archive ul li.all a:before {
+  font-family: 'FontAwesome';
+  color: #ff7940;
 }
 .post hr {
   margin-top: 0;

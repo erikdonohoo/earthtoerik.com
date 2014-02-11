@@ -7,6 +7,9 @@
 					<li ng-repeat="month in year">
 						<a ng-href="blog?startDate={{month.start}}&amp;endDate={{month.end}}">{{month.start | date:'MMMM yyyy'}}</a>
 					</li>
+					<li class="all">
+						<a ng-href="blog?endDate={{today}}">All Posts</a>
+					</li>
 				</ul>
 			</div>
 		</div>

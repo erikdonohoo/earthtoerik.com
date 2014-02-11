@@ -27,4 +27,5 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 	searchPosts($params || {});
 
 	$scope.year = year;
+	$scope.today = now.getTime();
 }]);
