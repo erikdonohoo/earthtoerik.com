@@ -14,14 +14,11 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 		year.push(month);
 	}
 
-	if ($params.searchStart && $params.searchEnd)
-		searchPosts($params);
-
 	function searchPosts(params) {
 		posts = Post.query(params);
-	};
+	}
 
-	searchPosts({});
+	searchPosts($params || {});
 
 	$scope.year = year;
 	$scope.posts = posts;

@@ -4,13 +4,13 @@
  */
 
 var express = require('express'),
-  routes = require('./routes');
+	routes = require('./routes');
 
 var app = module.exports = express();
 
 // Configuration
-
 app.set('port', process.env.PORT || 3000);
+app.set('dbstring', process.env.MONGOHQ_URL);
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.static('public'));
@@ -25,7 +25,7 @@ app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
-app.get('/api/posts', require('./routes/api/post.js').query);
+require('./routes/api/post').load(app);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
