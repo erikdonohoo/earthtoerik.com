@@ -14,14 +14,14 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 	}
 
 	function searchPosts(params) {
-		$scope.posts = [];
+		$scope.posts = undefined;
 		Post.query(params, function(posts){
 			$scope.posts = posts;
 		});
 	}
 
 	$scope.postsLoading = function() {
-		return !$scope.posts || $scope.posts.length === 0;
+		return !angular.isDefined($scope.posts);
 	};
 
 	searchPosts($params || {});

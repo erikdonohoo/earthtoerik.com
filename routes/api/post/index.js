@@ -10,7 +10,13 @@ function query(app, mongo) {
 	return function(req, res) {
 		mongo.connect(app.get('dbstring'), function(err, db) {
 			var post = db.collection('post');
-			post.find({}).toArray(function(err, docs){
+			var q = {};
+
+			// tags
+			if (req.query.tag)
+				q.tags = {'$in' : [req.query.tag]};
+
+			post.find(q).toArray(function(err, docs){
 				if (err)
 					return console.error(err);
 				res.json(docs);
