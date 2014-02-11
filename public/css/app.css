@@ -155,7 +155,7 @@ footer {
   color: #057d9f;
   text-shadow: 2px 2px 1px #025167;
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   nav.navbar .menu {
     display: block;
     float: right;
@@ -208,7 +208,8 @@ footer {
     text-align: center;
     border-top: 1px solid #61b7cf;
   }
-  .aside {
+  #about,
+  #main {
     width: 100%;
     float: none;
     margin: 10px 0;
