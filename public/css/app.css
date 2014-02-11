@@ -129,6 +129,7 @@ footer {
   border-top: 4px solid #a7e9fc;
   width: 100%;
   margin: 0;
+  z-index: 100;
 }
 .ed-code {
   font-size: 16px;
@@ -398,4 +399,9 @@ li.L8 {
   position: absolute;
   left: -20px;
   top: 2px;
+}
+@media (max-width: 769px) {
+  .archive {
+    display: none;
+  }
 }
