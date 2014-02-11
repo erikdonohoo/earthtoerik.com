@@ -422,6 +422,10 @@ li.L8 {
 .post hr {
   margin-top: 0;
 }
+.post {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ff4c00;
+}
 .post .info {
   font-size: 18px;
   color: #ff7940;
