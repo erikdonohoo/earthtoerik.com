@@ -15,6 +15,7 @@
 		</div>
 		<div class="col-sm-9">
 			<ed-load condition="postsLoading()"></ed-load>
+			<h2 class="noposts" ng-show="posts && posts.length == 0">No posts found</h2>
 			<div class="post" ng-repeat="post in posts">
 				<h1>{{post.title}}</h1>
 				<div class="info clearfix"><span class="date">{{post.date | date:'mediumDate'}}</span><span class="tags"><a ng-href="/blog?tag={{tag}}" ng-repeat="tag in post.tags" class="tag">{{tag}}</a></span></div>
