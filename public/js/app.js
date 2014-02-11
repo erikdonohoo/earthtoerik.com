@@ -140,6 +140,15 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 		$http.get('/posts/' + scope.blogid).success(function(data){
 			var html = $compile(data)(scope);
 			elem.append(html);
+			var disqus_shortname = 'erikdonohoo'; // required: replace example with your forum shortname
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				console.log('disqs');
+			})();
 		});
 	};
 	return dir;
