@@ -64,6 +64,23 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
+.directive('edLoad', ['$parse', function($parse){
+	var dir = {};
+	dir.restrict = 'E';
+	dir.scope = {
+		condition: '&'
+	};
+	dir.replace = true;
+	dir.template = '<div class="loading" ng-show="expr"><i class="fa fa-spinner fa-spin fa-4x"></i></div>';
+	dir.link = function(scope) {
+		scope.expr = scope.condition();
+		scope.$watch('condition()', function(){
+			scope.expr = scope.condition();
+		});
+	};
+	return dir;
+}])
+
 .directive('edScroll', ['$window','$location','$anchorScroll', function($window,$location,$anchorScroll){
 	var dir = {};
 	dir.scope = {

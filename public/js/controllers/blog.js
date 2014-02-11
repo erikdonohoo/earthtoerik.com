@@ -3,8 +3,7 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 
 	Nav.open = false;
 	var year = [],
-		now = new Date(),
-		posts = [];
+		now = new Date();
 
 	// Build Archive quick links
 	for (var i = 0; i < 12; i++) {
@@ -15,11 +14,17 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 	}
 
 	function searchPosts(params) {
-		posts = Post.query(params);
+		$scope.posts = [];
+		Post.query(params, function(posts){
+			$scope.posts = posts;
+		});
 	}
+
+	$scope.postsLoading = function() {
+		return !$scope.posts || $scope.posts.length === 0;
+	};
 
 	searchPosts($params || {});
 
 	$scope.year = year;
-	$scope.posts = posts;
 }]);

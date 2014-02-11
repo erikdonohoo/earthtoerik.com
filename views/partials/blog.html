@@ -11,6 +11,7 @@
 			</div>
 		</div>
 		<div class="col-sm-9">
+			<ed-load condition="postsLoading()"></ed-load>
 			<div class="post" ng-repeat="post in posts">
 				<h1>{{post.title}}</h1>
 				<p>{{post.text}}</p>

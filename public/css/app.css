@@ -24,6 +24,27 @@ a:hover {
   text-align: center;
   display: inline-block;
 }
+.loading {
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+  position: relative;
+}
+.loading i.fa {
+  -webkit-animation: spin 1s linear infinite normal;
+  -moz-animation: spin 1s linear infinite normal;
+  -ms-animation: spin 1s linear infinite normal;
+  -o-animation: spin 1s linear infinite normal;
+  animation: spin 1s linear infinite normal;
+}
+.loading:after {
+  font-family: 'Nova Flat', cursive;
+  content: 'loading';
+  font-size: 26px;
+  position: absolute;
+  bottom: -40px;
+  left: 45%;
+}
 h1,
 h2,
 h3,
