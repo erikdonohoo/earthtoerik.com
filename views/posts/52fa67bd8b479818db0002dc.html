@@ -1,3 +1,32 @@
 <p>
 	<img src="https://lh3.googleusercontent.com/-A256KzoARnU/Uvq3H2AmdqI/AAAAAAAABd0/_umaPOcnXTw/s225-no/angularjs.jpg" class="headline img-responsive"/> Angular is awesome, it seriously is the best.  In fact, this entire site is built with angular.js.  I built a bunch of custom directives, services and controllers to help you get the look and feel you see here.  Now I'm not a designer, but with <a href="http://angularjs.org" target="_blank">angular.js</a>, <a href="http://getbootstrap.com" target="_blank">Bootstrap 3</a> and <a href="http://lesscss.org" target="_blank">LESS</a> for my CSS, I feel like a designer.  I'm going to show you how you can make awesome custom components with angular.js that are reusable, testable and awesome!
 </p>
+<p>
+	While building this site it became clear that I needed to build a few custom components.  I realized quickly that I would want to show code snippets in my blog posts when I talk code.  There are tools like google-code-prettify which I took advantage of in my module.  I wanted to make a directive where I could just enter my code snippets in plain, pre-formatted text and have it render in a sexy way while also linking to a plunkr example that you can try and view.  Here's what I came up with
+</p>
+<ed-code plunk="http://plnkr.co/edit/rC04TYAkfWuPqSu0gWeI">
+ angular.module('ed.web').directive('edCode',[function(){
+  var dir = {};
+  dir.scope = {
+    plunk: '@'
+  };
+  dir.restrict = 'E';
+  dir.transclude = true;
+  dir.link = function(scope, elem, attr, ctrl, transclude) {
+    var code = angular.element('&lt;div&gt;').append(transclude());
+    code = code.html().indexOf('&lt;span class="ng-scope"&gt;') != -1 ? code.find('span').html() : code.html();
+    elem.find('pre').append(prettyPrintOne(code.replace(/ 'ng-scope'/g,"")
+      .replace(/ 'class="ng-scope"'/g,"")
+      .replace(/\t/g,"")
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')));
+  };
+  return dir;
+}])
+</ed-code>
+<p>
+	After making this I realized that it was sort of difficult to actually run my code formatter through my code formatter.  I know, messes with your brain.  Long story short I try to get it guess my language and remove some of the <code>&lt;span class="ng-scope"&gt;</code> tags that angular adds.  If you follow the plunker you will see a working example with the css formatter file.  To learn more about it, go visit the <a href="https://code.google.com/p/google-code-prettify/" target="_blank">google-code-prettify</a> home page.
+</p>
+<p>
+	If this proves useful to you in anyway, please feel free to grab it and use it somewhere.  Let me know what you think in the comments!
+</p>

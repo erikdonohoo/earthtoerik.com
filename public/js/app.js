@@ -122,17 +122,18 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
-.directive('edCode',['$timeout', function($timeout){
+.directive('edCode',[function(){
 	var dir = {};
 	dir.scope = {
 		plunk: '@'
 	};
 	dir.restrict = 'E';
-	dir.template = '<div class="ed-code clearfix"><pre class="prettyprint"></pre><a ng-href="{{plunk}}" target="_blank"><i class="code-link fa fa-toggle-down fa-2x" title="Try in Plnkr"></i></a></div>';
+	dir.template = '<div class="ed-code clearfix"><pre class="prettyprint"></pre><a ng-href="{{plunk}}" target="_blank"><i class="code-link fa fa-toggle-down fa-2x" title="View in Plnkr"></i></a></div>';
 	dir.transclude = true;
 	dir.link = function(scope, elem, attr, ctrl, transclude) {
 		var code = angular.element('<div>').append(transclude());
 		code = code.html().indexOf('<span class="ng-scope">') != -1 ? code.find('span').html() : code.html();
+		code = code.replace(/</g,"&lt;").replace(/>/g,"&gt;");
 		elem.find('pre').append(prettyPrintOne(code.replace(/ ng-scope/g,"").replace(/ class="ng-scope"/g,"").replace(/\t/g,"").replace(/</g,'&lt;').replace(/>/g,'&gt;')));
 	};
 	return dir;
