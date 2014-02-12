@@ -184,6 +184,9 @@ footer {
   text-shadow: 2px 2px 1px #025167;
 }
 @media (max-width: 769px) {
+  body {
+    padding-top: 50px;
+  }
   nav.navbar .menu {
     display: block;
     float: right;
