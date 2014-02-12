@@ -1,8 +1,14 @@
 <p>
-	<img src="https://lh6.googleusercontent.com/-r_1ylIlJuc4/UvuhcEEZkmI/AAAAAAAABeQ/t1ROHA2UgZY/s500-no/angularjs-logo.png" class="headline img-responsive"/> Angular is awesome, it seriously is the best.  In fact, this entire site is built with angular.js.  I built a bunch of custom directives, services and controllers to help you get the look and feel you see here.  Now I'm not a designer, but with <a href="http://angularjs.org" target="_blank">angular.js</a>, <a href="http://getbootstrap.com" target="_blank">Bootstrap 3</a> and <a href="http://lesscss.org" target="_blank">LESS</a> for my CSS, I feel like a designer.  I'm going to show you how you can make awesome custom components with angular.js that are reusable, testable and awesome!
+	<img src="https://lh6.googleusercontent.com/-r_1ylIlJuc4/UvuhcEEZkmI/AAAAAAAABeQ/t1ROHA2UgZY/s500-no/angularjs-logo.png" class="headline img-responsive"/> Angular is awesome, it seriously is the best.  In fact, this entire site is built with angular.js.  I built a bunch of custom directives, services and controllers to help you get the look and feel you see here.  While building this site it became clear that I needed to build a few custom components.  I realized quickly that I would want to show code snippets in my blog posts when I talk code.  There are tools like google-code-prettify which I took advantage of in my module.  I wanted to make a directive where I could just enter my code snippets in plain, pre-formatted text and have it render in a sexy way while also linking to a plunkr example that you can try and view.
 </p>
 <p>
-	While building this site it became clear that I needed to build a few custom components.  I realized quickly that I would want to show code snippets in my blog posts when I talk code.  There are tools like google-code-prettify which I took advantage of in my module.  I wanted to make a directive where I could just enter my code snippets in plain, pre-formatted text and have it render in a sexy way while also linking to a plunkr example that you can try and view.  Here's what I came up with
+    Building custom components is not hard.  If you've never made any custom directives, you should check out <blink interval="1000"><a href="http://plnkr.co/edit/HveN3KzXFiBiuExLay77?p=preview" target="_blank">this plunker</a></blink> and you will see how easy it is to bring the blink tag back to life.
+</p>
+</p>
+    <em>Disclaimer</em>: I don't reccommend recreating all of HTMLs most hated/revered old tags.  The <code>&lt;marquee&gt;</code> is where it belongs right now
+</p>
+<p>
+	  The code sample box is a bit more involved.  It does a pretty good job of handling most things, but there are still a few situations where it fails so this really is only reliable for a case by case scenario right now.  For my code sample box, here's what I came up with
 </p>
 <ed-code plunk="http://plnkr.co/edit/rC04TYAkfWuPqSu0gWeI">
  angular.module('ed.web').directive('edCode',[function(){

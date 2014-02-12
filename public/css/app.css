@@ -59,6 +59,9 @@ h6 {
 section {
   margin: 0 0 10px 0;
 }
+.ninja {
+  visibility: hidden;
+}
 nav.navbar {
   vertical-align: middle;
   padding: 10px 15px;

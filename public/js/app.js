@@ -139,6 +139,31 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
+.directive('blink', ['$timeout', function($timeout){
+
+	return {
+		scope: {
+			interval:'@'
+		},
+		transclude:true,
+		restrict:'E',
+		template: "<span ng-transclude></span>",
+		replace: true,
+		link: function(scope, elem) {
+
+			function blinkIt() {
+				if (elem.hasClass("ninja"))
+					elem.removeClass("ninja");
+				else
+					elem.addClass("ninja");
+
+				$timeout(function(){ blinkIt(); }, parseInt(scope.interval));
+			}
+			$timeout(function(){ blinkIt(); }, parseInt(scope.interval));
+		}
+	};
+}])
+
 .directive('edPost', ['$compile','$http','$window', function($compile, $http, $window){
 	var dir = {};
 	dir.scope = {
