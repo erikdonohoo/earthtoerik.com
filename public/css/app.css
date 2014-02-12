@@ -80,6 +80,7 @@ nav.navbar .menu {
   font-family: 'Nova Flat', cursive;
   display: inline-block;
   font-size: inherit;
+  position: relative;
 }
 .logo span {
   display: inline-block;
@@ -87,6 +88,16 @@ nav.navbar .menu {
   position: relative;
   bottom: 4px;
   font-size: inherit;
+}
+.logo:after {
+  position: absolute;
+  color: #3da028;
+  content: '\f0ac';
+  font-family: 'FontAwesome';
+  font-size: 159%;
+  top: -9px;
+  left: 0px;
+  z-index: -1;
 }
 a.navbar-brand {
   padding: 0;

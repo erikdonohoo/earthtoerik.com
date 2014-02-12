@@ -117,12 +117,23 @@ nav.navbar {
 	font-family:@font-brand;
 	display:inline-block;
 	font-size:inherit;
+	position:relative;
 	span {
 		display:inline-block;
 		margin-top:-0.1em;
 		position:relative;
 		bottom:4px;
 		font-size:inherit;
+	}
+	&:after {
+		position:absolute;
+		color:@midgreen;
+		content:'\f0ac';
+		font-family:@font-awesome;
+		font-size:159%;
+		top:-9px;
+		left:0px;
+		z-index:-1;
 	}
 }
 a.navbar-brand {
