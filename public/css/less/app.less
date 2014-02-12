@@ -118,6 +118,7 @@ nav.navbar {
 	display:inline-block;
 	font-size:inherit;
 	position:relative;
+	
 	span {
 		display:inline-block;
 		margin-top:-0.1em;
@@ -125,15 +126,31 @@ nav.navbar {
 		bottom:4px;
 		font-size:inherit;
 	}
+	&:before {
+		position:absolute;
+		background-color:@palegreen;
+		content:' ';
+		width:98%;
+		height:100%;
+		left:1px;
+		z-index:-2;
+		border-radius:100px;
+	}
 	&:after {
 		position:absolute;
-		color:@midgreen;
+		color:@midblue;
 		content:'\f0ac';
 		font-family:@font-awesome;
 		font-size:159%;
 		top:-9px;
 		left:0px;
 		z-index:-1;
+		text-shadow:none;
+		-webkit-animation: spin 6s linear infinite;
+		   -moz-animation: spin 6s linear infinite;
+		    -ms-animation: spin 6s linear infinite;
+		     -o-animation: spin 6s linear infinite;
+		        animation: spin 6s linear infinite;
 	}
 }
 a.navbar-brand {

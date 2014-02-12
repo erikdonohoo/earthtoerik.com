@@ -89,15 +89,31 @@ nav.navbar .menu {
   bottom: 4px;
   font-size: inherit;
 }
+.logo:before {
+  position: absolute;
+  background-color: #80ea69;
+  content: ' ';
+  width: 98%;
+  height: 100%;
+  left: 1px;
+  z-index: -2;
+  border-radius: 100px;
+}
 .logo:after {
   position: absolute;
-  color: #3da028;
+  color: #216477;
   content: '\f0ac';
   font-family: 'FontAwesome';
   font-size: 159%;
   top: -9px;
   left: 0px;
   z-index: -1;
+  text-shadow: none;
+  -webkit-animation: spin 6s linear infinite;
+  -moz-animation: spin 6s linear infinite;
+  -ms-animation: spin 6s linear infinite;
+  -o-animation: spin 6s linear infinite;
+  animation: spin 6s linear infinite;
 }
 a.navbar-brand {
   padding: 0;
