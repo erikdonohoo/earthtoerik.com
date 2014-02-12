@@ -518,6 +518,7 @@ li.L8 {
 .post .tag.activetag {
   color: #a7e9fc;
   border-color: #b2ffa2;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.35);
 }
 .post .tag,
 .post .more {
