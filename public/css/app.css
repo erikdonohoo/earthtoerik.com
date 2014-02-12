@@ -201,6 +201,9 @@ footer {
   body {
     padding-top: 50px;
   }
+  nav {
+    padding-bottom: 0;
+  }
   nav.navbar .menu {
     display: block;
     float: right;
@@ -215,7 +218,8 @@ footer {
     margin: 10px 0;
   }
   ul.nav {
-    height: 160px;
+    height: 140px;
+    margin-top: 57px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
@@ -236,10 +240,16 @@ footer {
     display: none;
     height: 0px;
   }
+  ul.nav li:last-child {
+    margin-bottom: -5px;
+  }
   nav.navbar,
   nav.navbar .container-fluid {
     padding: 5px 0;
     margin-top: -3px;
+  }
+  nav.navbar {
+    padding: 5px 0 0 0;
   }
   ul.nav,
   .navbar-brand {
