@@ -62,19 +62,29 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
-.directive('edLoad', ['$parse', function($parse){
+.directive('edLoad', ['$timeout', function($timeout){
 	var dir = {};
 	dir.restrict = 'E';
 	dir.scope = {
 		condition: '&'
 	};
 	dir.replace = true;
-	dir.template = '<div class="loading" ng-show="expr"><i class="fa fa-spinner fa-spin fa-4x"></i><div>loading</div></div>';
+	dir.template = '<div class="loading" ng-show="expr"><i class="fa fa-spinner fa-spin fa-4x"></i><div class="load">loading</div><div ng-show="data.slow" class="slow">hold on, almost there</div></div>';
 	dir.link = function(scope) {
+		scope.data = {};
+		scope.data.slow = false;
 		scope.expr = scope.condition();
 		scope.$watch('condition()', function(){
 			scope.expr = scope.condition();
+			if (!scope.expr)
+				scope.data.slow = false;
 		});
+
+		// Show extra text if taking a while
+		$timeout(function(){
+			if (scope.expr)
+				scope.data.slow = true;
+		}, 3500);
 	};
 	return dir;
 }])
