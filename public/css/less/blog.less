@@ -66,24 +66,24 @@
 		left:-5px;
 		content:'\f017'
 	}
-	.date, .tags .tag, .more {
+	.date, .tag, .more {
 		padding:5px 15px;
 	}
-	.tags, .tags .tag {
+	.tags, .tag {
 		float:right;
 	}
-	.more:hover, .tags .tag:hover {
+	.more:hover, .tag:hover, .tag.activetag {
 		color:@fainterblue;
 		border-color:@faintgreen;
 	}
-	.tags .tag, .more {
+	.tag, .more {
 		border-radius:10px;
 		display:inline-block;
 		border:2px solid @fainterblue;
 		margin:0 10px 10px 0;
 		color:@white;
 	}
-	.tags .tag:before {
+	.tag:before {
 		position:relative;
 		font-family:@font-awesome;
 		content:'\f02b';

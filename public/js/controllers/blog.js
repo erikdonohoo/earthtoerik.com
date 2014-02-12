@@ -3,7 +3,8 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 
 	Nav.open = false;
 	var year = [],
-		now = new Date();
+		now = new Date(),
+		data = {};
 
 	// Build Archive quick links
 	for (var i = 0; i < 12; i++) {
@@ -20,6 +21,9 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 		});
 	}
 
+	if ($params.tag)
+		data.tag = $params.tag;
+
 	$scope.postsLoading = function() {
 		return !angular.isDefined($scope.posts);
 	};
@@ -27,5 +31,6 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 	searchPosts($params || {});
 
 	$scope.year = year;
+	$scope.data = data;
 	$scope.today = now.getTime();
 }]);

@@ -505,20 +505,21 @@ li.L8 {
   content: '\f017';
 }
 .post .date,
-.post .tags .tag,
+.post .tag,
 .post .more {
   padding: 5px 15px;
 }
 .post .tags,
-.post .tags .tag {
+.post .tag {
   float: right;
 }
 .post .more:hover,
-.post .tags .tag:hover {
+.post .tag:hover,
+.post .tag.activetag {
   color: #a7e9fc;
   border-color: #b2ffa2;
 }
-.post .tags .tag,
+.post .tag,
 .post .more {
   border-radius: 10px;
   display: inline-block;
@@ -526,7 +527,7 @@ li.L8 {
   margin: 0 10px 10px 0;
   color: #f5f5f5;
 }
-.post .tags .tag:before {
+.post .tag:before {
   position: relative;
   font-family: 'FontAwesome';
   content: '\f02b';
