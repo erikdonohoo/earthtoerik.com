@@ -30,7 +30,7 @@
 .post hr {
 	margin-top:0;
 }
-.post img.headline {
+img.headline {
 	float:left;
 	max-width:40%;
 	border-radius:6px;
@@ -72,10 +72,16 @@
 	.tags, .tag {
 		float:right;
 	}
-	.more:hover, .tag:hover, .tag.activetag {
+	.more:hover, .tag:hover, .tag.activetag, .tag:active, img.headline:active, img.headline:hover {
 		color:@fainterblue;
 		border-color:@faintgreen;
 		box-shadow: inset 2px 2px 4px hsla(0,0%,0%,.35);
+	}
+	.title {
+		text-decoration: none;
+	}
+	.title:active {
+		text-decoration: underline;
 	}
 	.tag, .more {
 		border-radius:10px;

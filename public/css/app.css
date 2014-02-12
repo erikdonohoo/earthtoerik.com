@@ -469,7 +469,7 @@ li.L8 {
 .post hr {
   margin-top: 0;
 }
-.post img.headline {
+img.headline {
   float: left;
   max-width: 40%;
   border-radius: 6px;
@@ -515,10 +515,19 @@ li.L8 {
 }
 .post .more:hover,
 .post .tag:hover,
-.post .tag.activetag {
+.post .tag.activetag,
+.post .tag:active,
+.post img.headline:active,
+.post img.headline:hover {
   color: #a7e9fc;
   border-color: #b2ffa2;
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.35);
+}
+.post .title {
+  text-decoration: none;
+}
+.post .title:active {
+  text-decoration: underline;
 }
 .post .tag,
 .post .more {
