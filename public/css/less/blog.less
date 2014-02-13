@@ -45,6 +45,22 @@ img.headline {
 
 	margin-bottom:20px;
 
+	ul {
+		list-style: none;
+		li {
+			padding:10px;
+			color:@faintgreen;
+			position:relative;
+			&:before {
+				font-family:@font-awesome;
+				content:'\f192';
+				color:@orange;
+				position:absolute;
+				left:-10px;
+			}
+		}
+	}
+
 	.info {
 		font-size:18px;
 		color:@lightorange;
