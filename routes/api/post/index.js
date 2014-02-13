@@ -37,9 +37,11 @@ function query(app, mongo) {
 					var newDocs = [];
 					for (var i = docs.length - 1; i >= 0; i--) {
 						var doc = docs[i];
-						if (doc.snippet.toLowerCase().indexOf(req.query.search) != -1)
+						if (doc.snippet.toLowerCase().indexOf(req.query.search.toLowerCase()) != -1)
 							newDocs.push(doc);
-						else if (doc.tags.join(" ").toLowerCase().indexOf(req.query.search) != -1)
+						else if (doc.tags.join(" ").toLowerCase().indexOf(req.query.search.toLowerCase()) != -1)
+							newDocs.push(doc);
+						else if (doc.title.toLowerCase().indexOf(req.query.search.toLowerCase()) != -1)
 							newDocs.push(doc);
 					};
 					docs = newDocs;
