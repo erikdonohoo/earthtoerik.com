@@ -35,7 +35,7 @@ function query(app, mongo) {
 
 				if (req.query.search) {
 					var newDocs = [];
-					for (var i = docs.length - 1; i >= 0; i--) {
+					for (var i = 0; i < docs.length; i++) {
 						var doc = docs[i];
 						if (doc.snippet.toLowerCase().indexOf(req.query.search.toLowerCase()) != -1)
 							newDocs.push(doc);
