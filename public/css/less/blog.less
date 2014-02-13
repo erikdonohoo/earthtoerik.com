@@ -21,6 +21,58 @@
 		}
 	}
 }
+form.search {
+	position:relative;
+}
+.search-submit {
+	color:@white;
+	font-family:@font-brand;
+	width:100px;
+	display:inline-block;
+	height:40px;
+	font-size:18px;
+	margin-left:20px;
+	border-radius:10px;
+	border:2px solid @fainterblue;
+	background-color:@blue;
+	position:absolute;
+	top:20px;
+	left:380px;
+	padding:8px 10px;
+	&:hover {
+		border-color:@faintgreen;
+	}
+}
+div.search {
+	background-color:@white;
+	padding:3px 5px 3px 40px;
+	border-radius:10px;
+	margin:20px 0px;
+	position:relative;
+	display:inline-block;
+	border:2px solid @faintblue;
+	&.focus {
+		box-shadow: inset 1px 1px 2px 2px hsla(0,0%,0%,.25);
+	}
+	i.fa-search {
+		position:absolute;
+		left:5px;
+		color:@blue;
+		top:0px
+	}
+}
+input.search {
+	width:320px;
+	padding-left:0;
+	height:30px;
+	background-color:transparent;
+	color:#333;
+	border:none;
+
+	&:focus {
+		outline:none;
+	}
+}
 .noposts {
 	margin-top:100px;
 	color:@lightorange;
@@ -138,8 +190,18 @@ a.img-a {
 	.shrink {
 		padding:0;
 	}
-}
-@media (max-width:700) {
+	div.search {
+		margin-top:50px;
+		display:block;
+		width:100%;
+		height:40px;
+	}
+	input.search {
+		width:100%;
+	}
+	.search-submit {
+		display:none;
+	}
 	.post .info .tags {
 		display:none;
 	}

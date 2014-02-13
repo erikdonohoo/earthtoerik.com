@@ -1,5 +1,5 @@
-angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','Post',
-	function($scope, Nav, $params, Post){
+angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','Post','$location','$route',
+	function($scope, Nav, $params, Post, $location, $route){
 
 	Nav.open = false;
 	var year = [],
@@ -27,6 +27,12 @@ angular.module('ed.web').controller('BlogCtrl', ['$scope','Nav','$routeParams','
 	$scope.postsLoading = function() {
 		return !angular.isDefined($scope.posts);
 	};
+
+	// Search for posts
+	$scope.search = function() {
+		$location.search({'search':$scope.data.search});
+		$route.reload();
+	}
 
 	searchPosts($params || {});
 

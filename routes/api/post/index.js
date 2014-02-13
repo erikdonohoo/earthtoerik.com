@@ -33,6 +33,18 @@ function query(app, mongo) {
 				if (err)
 					return console.error(err);
 
+				if (req.query.search) {
+					var newDocs = [];
+					for (var i = docs.length - 1; i >= 0; i--) {
+						var doc = docs[i];
+						if (doc.snippet.toLowerCase().indexOf(req.query.search) != -1)
+							newDocs.push(doc);
+						else if (doc.tags.join(" ").toLowerCase().indexOf(req.query.search) != -1)
+							newDocs.push(doc);
+					};
+					docs = newDocs;
+				}
+
 				res.json(docs);
 			});
 		});
