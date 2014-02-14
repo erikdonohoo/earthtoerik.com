@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<form class="search" ng-submit="search()">
-			<div class="search" ng-class="{focus: data.search && data.search.length > 0}">
+			<div class="search" ed-focus="input">
 				<i class="fa fa-search fa-2x pull-left"></i>
 				<input type="text" class="search pull-right" ng-model="data.search" placeholder="search for posts" />
 			</div>

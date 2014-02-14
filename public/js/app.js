@@ -37,6 +37,23 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	return dir;
 }])
 
+.directive('edFocus', [function(){
+	var dir = {};
+	dir.scope = {
+		edFocus: '@?'
+	};
+	dir.link = function(scope, elem) {
+		var input = (scope.edFocus) ? elem.find(scope.edFocus) : elem;
+		input.bind('focus', function(e){
+			elem.addClass('focus');
+		});
+		input.bind('blur', function(e){
+			elem.removeClass('focus');
+		})
+	}
+	return dir;
+}])
+
 .directive('edShowWindow',['$window',function($window){
 	var dir = {};
 	dir.scope = {
