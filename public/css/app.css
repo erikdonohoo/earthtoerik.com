@@ -543,12 +543,15 @@ input.search:focus {
   margin-top: 0;
 }
 img.headline {
-  float: left;
   max-width: 40%;
   border-radius: 6px;
   border: 4px solid #a7e9fc;
   margin: 0 20px 0 0;
   box-shadow: inset 2px 2px 7px rgba(0, 0, 0, 0.25);
+}
+img.headline-sm.headline {
+  max-width: 25%;
+  margin: 20px;
 }
 .post + .post {
   border-top: 2px solid #ff4c00;
@@ -570,6 +573,9 @@ img.headline {
   color: #ff4c00;
   position: absolute;
   left: -10px;
+}
+.post ol li {
+  padding: 10px 0;
 }
 .post .info {
   font-size: 18px;
@@ -647,11 +653,12 @@ a.img-a {
   .archive {
     display: none;
   }
-  img.headline {
+  img.headline,
+  img.headline.headline-sm {
+    margin: 10px 0;
     min-width: 100%;
     margin-right: 0;
     display: inline-block;
-    float: none;
   }
   .shrink {
     padding: 0;
