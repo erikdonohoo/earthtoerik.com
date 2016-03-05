@@ -4,15 +4,15 @@
 angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
   config(['$locationProvider','$routeProvider', function($locationProvider,$route) {
 	$route.when('/blog',{
-		templateUrl:'partials/blog',
+		templateUrl:'partials/blog.html',
 		controller:'BlogCtrl'
 	})
 	.when('/blog/:blogid',{
-		templateUrl:'partials/post',
+		templateUrl:'partials/post.html',
 		controller:'PostCtrl'
 	})
 	.when('/',{
-		templateUrl:'partials/home',
+		templateUrl:'partials/home.html',
 		controller:function($scope, Nav){
 			Nav.open = false;
 		}
@@ -209,7 +209,7 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 }])
 
 .filter('objectFilter', ['$filter', function($filter) {
-	
+
 	return function(list, query) {
 		if(!query)
 			return list;
@@ -232,8 +232,14 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	};
 }])
 
-.factory('Nav', [function(){
-	var nav = {};
+.factory('Nav', ['$window', '$rootScope', function($window, $rootScope){
+
+    var nav = {};
+    $window.addEventListener('resize', function () {
+        nav.width = $window.innerWidth;
+        $rootScope.$apply();
+    });
+    nav.width = $window.innerWidth;
 	nav.open = false; // Show/hide nav
 	return nav;
 }])
@@ -242,6 +248,6 @@ angular.module('ed.web', ['ngRoute','ngResource','ngTouch','ngAnimate']).
 	$scope.nav = Nav;
 }])
 
-.run(['$rootScope','$location','Nav',function($root,$loc){
+.run(['$rootScope','$location',function($root,$loc){
 	$root.location = $loc;
 }]);
