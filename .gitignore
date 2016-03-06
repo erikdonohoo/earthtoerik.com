@@ -2,3 +2,4 @@
 node_modules/
 public/js/libs
 public/css/app.css
+.env
